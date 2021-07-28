@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+ *  Copyright (c) 2021
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="WebCodecs samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="WebCodecs samples">
+    <meta itemprop="name" content="WebCodecs samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <title>WebCodecs Demo</title>
+
+    <link rel="stylesheet" href="../css/main.css"/>
+</head>
+
+<body>
+
+<div id="container">
+    <h1>WebCodecs Loopback Demo</h1>
+
+    <div class="box">
+        <video id="userMedia" playsinline autoplay muted></video>
+        <canvas id="playbackCanvas"></canvas>
+    </div>
+
+    <div class="box">
+        <span>Video Resolution:</span>
+        <select id="videoResolution">
+            <option selected value="1280x720">1280x720</option>
+            <option value="160x120">160x120</option>
+            <option value="320x240">320x240</option>
+            <option value="640x320">640x320</option>
+            <option value="640x480">640x480</option>
+        </select>
+
+        <span>Video FrameRate:</span>
+        <select id="videoFrameRate">
+            <option selected value="24">24</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+        </select>
+
+        <span>Codec:</span>
+        <select id="videoCodec">
+            <option selected value="vp8">VP8</option>
+            <!--<option value="avc1.42E01E">H264 Constrain Baseline Profile</option>-->
+            <option value="avc1.42001E">H264 Constrain Baseline Profile</option>
+            <option value="avc1.4D401E">H264 Main Profile</option>
+            <option value="avc1.64001E">H264 Hight Profile</option>
+            <option value="vp09.00.10.8">VP9 Profile0</option>
+            <option value="vp09.01.10.8">VP9 Profile1</option>
+            <option value="vp09.02.10.8">VP9 Profile2</option>
+            <option value="vp09.03.10.8">VP9 Profile3</option>
+        </select>
+
+        <span>Acceleration:</span>
+        <select id="acceleration">
+            <option value="require">require</option>
+            <option value="deny">deny</option>
+            <option selected value="allow">allow</option>
+        </select>
+
+        <span>FrameSource:</span>
+        <select id="frameSource">
+            <option value="camera">camera</option>
+            <option value="cameraCanvas">cameraCanvas</option>
+        </select>
+
+        <label>Bitrate
+            <input type='text' id='videoBitrate' value='2e6'/>
+        </label>
+    </div>
+
+    <div class="box">
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+    </div>
+</div>
+
+<script src="webcodecsUtils.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
