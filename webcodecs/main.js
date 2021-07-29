@@ -114,6 +114,7 @@ function decoded_frame_available(video_frame) {
   console.log(video_frame);
   // TODO(zlma): can we draw video frame to <video> directly, maybe use MSTG?
   drawFrameToCanvas(playbackCanvas, video_frame);
+  video_frame.close();
 }
 
 function decoder_error_callback(e) {
