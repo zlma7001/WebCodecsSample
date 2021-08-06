@@ -20,7 +20,7 @@
 
     <title>WebCodecs Demo</title>
 
-    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 
 <body>
@@ -76,9 +76,17 @@
             <option value="cameraCanvas">cameraCanvas</option>
         </select>
 
+        <span>NumOfTemporalLayers:</span>
+        <select id="numTemporalLayers">
+            <option selected value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
         <label>Bitrate
             <input type='text' id='videoBitrate' value='2e6'/>
         </label>
+
     </div>
 
     <div class="box">
@@ -87,8 +95,8 @@
     </div>
 </div>
 
-<script src="webcodecsUtils.js"></script>
-<script src="main.js"></script>
+<script src="webcodecs/webcodecsUtils.js"></script>
+<script src="webcodecs/main.js"></script>
 
 </body>
 </html>

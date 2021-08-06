@@ -37,6 +37,12 @@ function getSelectedVideoBitrate() {
   return bitrate.value;
 }
 
+function getSelectedNumTemporalLayers() {
+  const numTemporalLayersSelect = document.querySelector('#numTemporalLayers');
+  const option = numTemporalLayersSelect.options[numTemporalLayersSelect.selectedIndex];
+  return option.value;
+}
+
 function getSelectedVideoResolution() {
   const videoFrameRateSelect = document.querySelector('#videoResolution');
   const option = videoFrameRateSelect.options[videoFrameRateSelect.selectedIndex];
@@ -155,9 +161,10 @@ async function start() {
         const acceleration = getVideoEncoderAcceleration();
         const bitrate = getSelectedVideoBitrate();
         const framerate = getEncoderFramerate();
+        const numTemporalLayers = getSelectedNumTemporalLayers();
 
-        videoEncoder = createVideoEncoder(codec, width, height, bitrate, framerate, acceleration,
-          encoded_frame_availale, encoder_error_callback);
+        videoEncoder = createVideoEncoder(codec, width, height, bitrate, framerate,
+          numTemporalLayers, acceleration, encoded_frame_availale, encoder_error_callback);
 
         let encodedFrames = 0;
         let onVideoFrameAvailable = function (video_frame) {

@@ -30,7 +30,7 @@ function createVideoDecoder(codec, output_cb, err_cb) {
   }
 }
 
-function createVideoEncoder(codec, width, height, bitrate, framerate, acceleration, output_cb, err_cb) {
+function createVideoEncoder(codec, width, height, bitrate, framerate, numTemporalLayers, acceleration, output_cb, err_cb) {
   const video_encoder_init = {
     output: output_cb,
     error: err_cb,
@@ -46,8 +46,10 @@ function createVideoEncoder(codec, width, height, bitrate, framerate, accelerati
     bitrate: bitrate,
     framerate: framerate,
     acceleration: acceleration,
-    scalabilityMode: "L1T3",
   };
+  if (numTemporalLayers > 1)
+    params.scalabilityMode = "L1T" + numTemporalLayers;
+
   console.log(params);
 
   video_encoder.configure(params);
